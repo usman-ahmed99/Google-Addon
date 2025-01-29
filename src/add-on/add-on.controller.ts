@@ -1,8 +1,9 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 
 @Controller('addon')
 export class AddOnController {
   @Post('render')
+  @HttpCode(200)
   renderHomepage(@Body() body: any) {
     console.log('endpoint called');
     return {
