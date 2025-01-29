@@ -1,0 +1,74 @@
+import { Controller, Post, Body } from '@nestjs/common';
+
+@Controller('addon')
+export class AddOnController {
+  @Post('render')
+  renderHomepage(@Body() body: any) {
+    console.log('endpoint called');
+    return {
+      action: {
+        navigations: [
+          {
+            pushCard: {
+              header: {
+                title: 'Cats!',
+              },
+              sections: [
+                {
+                  widgets: [
+                    {
+                      textParagraph: {
+                        text: 'Your random cat:',
+                      },
+                    },
+                    {
+                      image: {
+                        imageUrl: 'https://cataas.com/cat',
+                      },
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    // return {
+    //   cards: [
+    //     {
+    //       header: {
+    //         title: 'Welcome to My Add-on',
+    //       },
+    //       sections: [
+    //         {
+    //           widgets: [
+    //             {
+    //               textParagraph: {
+    //                 text: 'This is a basic example of Card-based UI.',
+    //               },
+    //             },
+    //             {
+    //               buttonSet: {
+    //                 buttons: [
+    //                   {
+    //                     textButton: {
+    //                       text: 'Open React Component',
+    //                       onClick: {
+    //                         openLink: {
+    //                           url: 'https://your-react-app-url.com', // Replace with React app URL
+    //                         },
+    //                       },
+    //                     },
+    //                   },
+    //                 ],
+    //               },
+    //             },
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // };
+  }
+}
