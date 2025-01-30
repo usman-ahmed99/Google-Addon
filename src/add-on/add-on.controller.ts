@@ -6,6 +6,7 @@ export class AddOnController {
   @HttpCode(200)
   renderHomepage(@Body() body: any) {
     console.log('endpoint called');
+    console.log('body:', JSON.stringify(body, null, 2));
     return {
       action: {
         navigations: [
